@@ -12,7 +12,7 @@ try:
     )
     cur = conn.cursor()
     #code ici
-    with open('create.sql') as f:
+    with open('sql_file/create.sql') as f:
         fichier = f.read()
         lines = fichier.split(";")
         for index, line in enumerate(lines):

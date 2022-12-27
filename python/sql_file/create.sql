@@ -13,7 +13,7 @@ CREATE TABLE categorie (
     primary key(categorie_id),
     created timestamp default current_timestamp,
     modified timestamp default current_timestamp,
-    title varchar(255) not null,
+    titre varchar(255) not null,
     ordre int,
     visible bool default true
 );
@@ -24,7 +24,7 @@ CREATE TABLE experience (
     categorie_id int,
     created timestamp default current_timestamp,
     modified timestamp default current_timestamp,
-    title varchar(255) not null,
+    titre varchar(255) not null,
     ordre int,
     visible bool default true,
     primary key(experience_id),
@@ -69,7 +69,7 @@ CREATE TABLE sujet (
     primary key(sujet_id),
     created timestamp default current_timestamp,
     modified timestamp default current_timestamp,
-    subject varchar(255) not null
+    sujet varchar(255) not null
 );
 
 CREATE TABLE contact (
@@ -79,7 +79,7 @@ CREATE TABLE contact (
     modified timestamp default current_timestamp,
     sujet_id int not null,
     foreign key(sujet_id) references sujet(sujet_id),
-    subsubject varchar(255) not null default "",
+    soussujet varchar(255) not null default "",
     description varchar(255) not null,
     mail varchar(255) not null
 );
