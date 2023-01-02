@@ -17,7 +17,9 @@ def insert_in_db(requete, data=()):
     cur.execute(requete, data)
 
     conn.commit()
+    add_id = cur.lastrowid
     conn.close()
+    return add_id
 
 def select_from_db(requete, data=()):
     cur, conn = get_db_connection()
