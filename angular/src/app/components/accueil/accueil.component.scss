@@ -1,0 +1,25 @@
+.titre {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.cards {
+  margin: auto;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.cards .card:nth-of-type(even) {
+  align-self: flex-end;
+}
+.cards .card:nth-of-type(odd) {
+  align-self: flex-start;
+}
+
+.card {
+  width: 40%;
+  mat-card-header {
+    font-size: 24px;
+    font-weight: 300;
+  }
+}

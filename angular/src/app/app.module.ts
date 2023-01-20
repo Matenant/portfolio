@@ -20,12 +20,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormulaireComponent } from './components/formulaire/formulaire.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
+import { DatePipePipe } from './pipes/date-pipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormulaireComponent,
-    AccueilComponent
+    AccueilComponent,
+    DatePipePipe
   ],
   imports: [
     BrowserModule,
