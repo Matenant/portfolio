@@ -5,6 +5,7 @@ import {
   MomentDateAdapter,
   MAT_MOMENT_DATE_ADAPTER_OPTIONS,
 } from '@angular/material-moment-adapter';
+import { Categorie } from './model/categorie/categorie';
 
 @Component({
   selector: 'app-root',
@@ -24,11 +25,18 @@ import {
 export class AppComponent {
   title = 'Portfolio';
 
+  public categories: any = [];
+
   constructor(
     private _adapter: DateAdapter<any>,
     @Inject(MAT_DATE_LOCALE) private _locale: string,
+    private categorie: Categorie
   ) {
     this._locale = 'fr';
     this._adapter.setLocale(this._locale);
+
+    this.categorie.getAllVisibleCategorie().subscribe((response) => {
+      this.categories = response;
+    });
   }
 }

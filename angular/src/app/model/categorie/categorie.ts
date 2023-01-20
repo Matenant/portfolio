@@ -23,4 +23,14 @@ export class Categorie {
     });
     return subject.asObservable();
   }
+
+  public getAllVisibleCategorie(): Observable<any> {
+    var subject = new Subject<any>();
+    let data = this.getAllCategorie();
+    data.subscribe((response) => {
+      this.datas = response.filter((e: any) => e.visible == true);;
+      subject.next(this.datas);
+    });
+    return subject.asObservable();
+  }
 }

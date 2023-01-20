@@ -1,5 +1,8 @@
 <mat-toolbar class="toolbar">
   <span class="button" routerLink="/" routerLinkActive="activebutton" [routerLinkActiveOptions]="{exact: true}">Portfolio</span>
+  <ng-container *ngFor="let categorie of categories">
+    <span class="button" [routerLink]="['./']" fragment="{{categorie.titre}}">{{categorie.titre}}</span>
+  </ng-container>
 </mat-toolbar>
 
 <div style="margin-top: 80px;">

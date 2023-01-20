@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { FormulaireComponent } from './components/formulaire/formulaire.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
+
+const routerOptions: ExtraOptions = {
+  anchorScrolling: 'enabled'
+};
 
 const routes: Routes = [
   { path: 'formulaire', component: FormulaireComponent },
@@ -10,7 +14,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, routerOptions)
   ],
   exports: [
     RouterModule
