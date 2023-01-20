@@ -1,4 +1,6 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
+
 import controller.sujet as sujet
 import controller.contact as contact
 
@@ -8,6 +10,7 @@ import controller.technologie as technologie
 import controller.remarque as remarque
 
 app = Flask(__name__)
+CORS(app)
 
 @app.get('/')
 def hello_world():
@@ -91,6 +94,14 @@ def addExperience():
     json = request.get_json()
     if (experience.add_experience(json)):
         return "Element ajouté.", 200
+    return "Erreur", 400
+
+@app.post('/experience/<int:index>')
+def updateExperience(index):
+    print(index, flush=True)
+    json = request.get_json()
+    if (experience.update_experience(index, json)):
+        return "Element modifié.", 200
     return "Erreur", 400
 
 @app.get('/experience')

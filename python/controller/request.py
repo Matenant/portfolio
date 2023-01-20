@@ -1,4 +1,5 @@
 import mariadb
+import datetime
 
 def get_db_connection():
     conn = mariadb.connect(
@@ -32,13 +33,24 @@ def select_from_db(requete, data=()):
     for record in records:
         element = {}
         for key, value in enumerate(record):
-            element[field_names[key]] = value
+            if type(value) is datetime.datetime:
+                element[field_names[key]] = value.strftime('%m/%d/%Y')
+            else:
+                element[field_names[key]] = value
         result.append(element)
 
     conn.close()
     return result
 
 def delete_from_db(requete, data=()):
+    cur, conn = get_db_connection()
+    
+    cur.execute(requete, data)
+
+    conn.commit()
+    conn.close()
+
+def update_from_db(requete, data=()):
     cur, conn = get_db_connection()
     
     cur.execute(requete, data)
